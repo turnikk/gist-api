@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import GistFileBadge from '../GistFileBadge';
 
-const GistCard = ({gistData}) => {
+const GistCard = ({ gistData }) => {
   const {
     created_at: createdAt,
     updated_at: updatedAt,
@@ -10,6 +10,7 @@ const GistCard = ({gistData}) => {
     comments,
     description,
     files,
+    forksImgs,
   } = gistData;
 
   const createdDate = new Date(createdAt).toLocaleString();
@@ -17,6 +18,9 @@ const GistCard = ({gistData}) => {
 
   const renderedBadges = Object.keys(files).map((name) => (
     <GistFileBadge fileData={files[name]} key={name} />
+  ));
+  const renderedAvatars = forksImgs.map((url) => (
+    <img src={url} alt={url} className="avatar" key={url} />
   ));
 
   return (
@@ -28,10 +32,13 @@ const GistCard = ({gistData}) => {
         <div className="gist-updated_at small">Updated: {updatedDate}</div>
         <div className="gist-comments-count small">Comments: {comments}</div>
       </div>
-      <div className="gist-files">
-        {renderedBadges}
-      </div>
-      <div className="gist-forks"></div>
+      <div className="gist-files">{renderedBadges}</div>
+      {!!renderedAvatars.length && (
+        <div className="gist-forks">
+          <span className="forks-label small">Forks:</span>
+          {renderedAvatars}
+        </div>
+      )}
     </div>
   );
 };

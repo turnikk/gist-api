@@ -7,10 +7,18 @@ const httpClient = axios.create({
   timeout,
 });
 
-export const getGistsData = (username, limit = 20, page) =>
+export const getGistsData = (username, limit = 20, page = 1) =>
   httpClient.get(`/users/${username}/gists`, {
     params: {
       per_page: limit,
       page,
-    }
+    },
+  });
+
+export const getGistForks = (id, limit = 3, page = 1) =>
+  httpClient.get(`/gists/${id}/forks`, {
+    params: {
+      per_page: limit,
+      page,
+    },
   });

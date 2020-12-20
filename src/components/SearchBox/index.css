@@ -3,3 +3,8 @@
     font-size: calc(3vmin);
     width: 500px;
 }
+
+.search-button{
+    margin-bottom: 20px;
+    font-size: calc(3vmin);
+}

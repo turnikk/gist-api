@@ -7,9 +7,8 @@ const GistContainer = () => {
   const [userName, setUserName] = useState();
   const [page, setPage] = useState();
 
-  const onChangeUserName = (userNameEvent) => {
-    const { currentTarget } = userNameEvent;
-    setUserName(currentTarget.value);
+  const onChangeUserName = (userName) => {
+    setUserName(userName);
     setPage(1);
   };
 

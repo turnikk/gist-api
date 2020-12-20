@@ -1,13 +1,28 @@
 .small {
-    font-size: calc(2vmin);
+  font-size: calc(2vmin);
 }
 
 .gist-info {
-    max-width: 720px;
+  max-width: 720px;
 }
 
 .gist-descr {
-    overflow: auto;
-    overflow-wrap: break-word;
-    padding-bottom: 5px;
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding-bottom: 5px;
+}
+
+.gist-forks {
+    display: inline-flex;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.forks-label {
+  padding: 20px;
 }
